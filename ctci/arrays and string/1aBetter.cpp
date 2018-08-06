@@ -5,18 +5,16 @@ int main()
 	string s;
 	cin>>s;
 	int len=s.length();
-	int a[26];
-	for(int j=0;j<26;j++)
-		a[j]=0;
+	int check=0;
 	for(int i=0;i<len;i++)
 	{
-		a[s[i]-97]++;
-		if(a[s[i]-97]>1)
-		{
-			cout<<"false"<<endl;
+		int val=s[i]-'a';
+		if((check&(1<<val))>0){
+			cout<<0<<endl;
 			return 0;
 		}
+		check|=(1<<val);
 	}
-	cout<<"true"<<endl;
+	cout<<1<<endl;
 	return 0;
 }
